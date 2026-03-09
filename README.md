@@ -1,6 +1,6 @@
 Addis Photo & Media Agency
 
-A demo website for Addis Photo & Media Agency showcasing services, portfolio, and contact information for clients. Built to demonstrate a modern web presence for a media company.
+A demo website for Addis Photo & Media Agency showcasing services, portfolio, and contact information for clients. This project demonstrates a modern web presence for a media company.
 
 🌐 Live Demo: Addis Photo & Media Agency
 
@@ -28,14 +28,21 @@ Render.com (deployment)
 
 Installation
 
-Clone the repository: git clone https://github.com/YourUsername/addis-photo-media.git
+Clone the repository:
 
-Navigate into the project directory: cd addis-photo-media
+git clone https://github.com/YourUsername/addis-photo-media.git
 
-Install dependencies: npm install
+Navigate into the project directory:
 
-Start the development server: npm run dev
+cd addis-photo-media
 
+Install dependencies:
+
+npm install
+
+Start the development server:
+
+npm run dev
 Usage
 
 Open the site in your browser at http://localhost:3000

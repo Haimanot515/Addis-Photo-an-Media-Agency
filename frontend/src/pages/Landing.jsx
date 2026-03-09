@@ -23,7 +23,7 @@ const Landing = () => {
       overflowY: 'scroll',
       overflowX: 'hidden',
       scrollSnapType: 'y mandatory',
-      backgroundColor: '#022c22',
+      backgroundColor: '#020617', // Deep Navy
       fontFamily: "'Inter', sans-serif",
       margin: 0,
       padding: 0
@@ -51,7 +51,7 @@ const Landing = () => {
     },
     accessBtn: {
       padding: '18px 45px',
-      background: '#00ff88',
+      background: '#00d4ff', // Electric Blue
       color: '#000',
       border: 'none',
       fontSize: '14px',
@@ -60,7 +60,7 @@ const Landing = () => {
       letterSpacing: '3px',
       cursor: 'pointer',
       position: 'relative',
-      boxShadow: '0 0 30px rgba(0, 255, 136, 0.4), inset 0 0 10px rgba(255,255,255,0.5)',
+      boxShadow: '0 0 30px rgba(0, 212, 255, 0.4), inset 0 0 10px rgba(255,255,255,0.5)',
       transition: 'all 0.3s cubic-bezier(0.23, 1, 0.32, 1)',
       clipPath: 'polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0% 30%)'
     },
@@ -83,7 +83,7 @@ const Landing = () => {
     heroBackground: {
       position: 'absolute',
       top: 0, left: 0, right: 0, bottom: 0,
-      background: 'radial-gradient(circle at center, #065f46 0%, #064e3b 40%, #022c22 100%)',
+      background: 'radial-gradient(circle at center, #1e40af 0%, #1e3a8a 40%, #020617 100%)', // Blue gradients
       zIndex: 0,
       width: '100%'
     },
@@ -94,8 +94,8 @@ const Landing = () => {
       margin: 0,
       textTransform: 'uppercase',
       letterSpacing: '-6px',
-      color: '#ecfdf5',
-      textShadow: '0 0 50px rgba(16, 185, 129, 0.4)'
+      color: '#f0f9ff',
+      textShadow: '0 0 50px rgba(59, 130, 246, 0.4)'
     }
   };
 
@@ -134,12 +134,12 @@ const Landing = () => {
           onMouseOver={(e) => {
             e.target.style.transform = 'scale(1.05) translateY(-3px)';
             e.target.style.background = '#fff';
-            e.target.style.boxShadow = '0 20px 50px rgba(0, 255, 136, 0.8)';
+            e.target.style.boxShadow = '0 20px 50px rgba(0, 212, 255, 0.8)';
           }}
           onMouseOut={(e) => {
             e.target.style.transform = 'scale(1) translateY(0)';
-            e.target.style.background = '#00ff88';
-            e.target.style.boxShadow = '0 0 30px rgba(0, 255, 136, 0.4)';
+            e.target.style.background = '#00d4ff';
+            e.target.style.boxShadow = '0 0 30px rgba(0, 212, 255, 0.4)';
           }}
         >
           Client Portal
@@ -151,7 +151,7 @@ const Landing = () => {
         <div style={styles.heroBackground} />
         <main style={{ zIndex: 10, textAlign: 'center', opacity: active ? 1 : 0, transition: 'all 1s', width: '100%' }}>
           <span style={{
-            color: '#00ff88',
+            color: '#00d4ff',
             letterSpacing: '15px',
             textTransform: 'uppercase',
             fontSize: '12px',
@@ -163,7 +163,7 @@ const Landing = () => {
           </span>
           <h1 style={styles.mainHeading}>
             Addis Photo<br />
-            <span style={{ color: 'transparent', WebkitTextStroke: '2px #00ff88' }}>& Media</span>
+            <span style={{ color: 'transparent', WebkitTextStroke: '2px #00d4ff' }}>& Media</span>
           </h1>
           <p style={{
             color: '#fff',
@@ -194,18 +194,18 @@ const Landing = () => {
       </section>
 
       {/* Secondary Section */}
-      <section style={{ ...styles.section, background: '#011a14', width: '100vw' }}>
-        <h2 style={{ color: '#ecfdf5', fontSize: '6vw', fontWeight: '900', margin: 0, textAlign: 'center' }}>
-          Capture the <span style={{ color: '#00ff88' }}>Moment.</span>
+      <section style={{ ...styles.section, background: '#020617', width: '100vw' }}>
+        <h2 style={{ color: '#f0f9ff', fontSize: '6vw', fontWeight: '900', margin: 0, textAlign: 'center' }}>
+          Capture the <span style={{ color: '#00d4ff' }}>Moment.</span>
         </h2>
-        <p style={{ color: '#ecfdf5', opacity: 0.5, marginTop: '20px', fontSize: '1.2rem' }}>
+        <p style={{ color: '#f0f9ff', opacity: 0.5, marginTop: '20px', fontSize: '1.2rem' }}>
           Providing world-class media solutions for Addis Ababa's growing brands.
         </p>
         <div style={{
           marginTop: '40px',
           width: '80%',
           height: '1px',
-          background: 'linear-gradient(90deg, transparent, #00ff88, transparent)',
+          background: 'linear-gradient(90deg, transparent, #00d4ff, transparent)',
           opacity: 0.3
         }} />
       </section>
@@ -224,8 +224,8 @@ const Landing = () => {
             100% { left: 150%; }
           }
           ::-webkit-scrollbar { width: 8px; }
-          ::-webkit-scrollbar-track { background: #022c22; }
-          ::-webkit-scrollbar-thumb { background: #00ff88; border-radius: 10px; }
+          ::-webkit-scrollbar-track { background: #020617; }
+          ::-webkit-scrollbar-thumb { background: #00d4ff; border-radius: 10px; }
         `}
       </style>
     </div>

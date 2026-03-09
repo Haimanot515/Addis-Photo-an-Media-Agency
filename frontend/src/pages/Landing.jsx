@@ -7,7 +7,6 @@ const Landing = () => {
 
   useEffect(() => {
     setActive(true);
-    // Reset body styles to ensure full-width layout
     document.body.style.margin = '0';
     document.body.style.padding = '0';
     document.body.style.overflowX = 'hidden';
@@ -23,8 +22,8 @@ const Landing = () => {
       overflowY: 'scroll',
       overflowX: 'hidden',
       scrollSnapType: 'y mandatory',
-      backgroundColor: '#0a0a0a', // Rich Studio Black
-      fontFamily: "'Inter', sans-serif",
+      backgroundColor: '#ffffff', // Clean white base
+      fontFamily: "'Playfair Display', serif", // Editorial feel
       margin: 0,
       padding: 0
     },
@@ -43,58 +42,63 @@ const Landing = () => {
     },
     topNav: {
       position: 'fixed',
-      top: '40px',
-      right: '40px',
+      top: '0',
+      left: '0',
+      width: '100%',
+      height: '100px',
       display: 'flex',
-      gap: '20px',
-      zIndex: 1000
+      justifyContent: 'flex-end',
+      alignItems: 'center',
+      padding: '0 60px',
+      boxSizing: 'border-box',
+      gap: '40px',
+      zIndex: 1000,
+      backgroundColor: 'rgba(255,255,255,0.9)',
+      backdropFilter: 'blur(10px)',
+      borderBottom: '1px solid #eee'
     },
     accessBtn: {
-      padding: '18px 45px',
+      padding: '12px 0',
       background: 'transparent',
-      color: '#d4af37', // Gold
-      border: '1px solid #d4af37',
-      fontSize: '14px',
+      color: '#000',
+      border: 'none',
+      borderBottom: '2px solid #000',
+      fontSize: '12px',
+      fontWeight: '700',
+      textTransform: 'uppercase',
+      letterSpacing: '4px',
+      cursor: 'pointer',
+      transition: 'all 0.3s ease',
+    },
+    registerBtn: {
+      padding: '15px 35px',
+      background: '#000',
+      color: '#fff',
+      border: 'none',
+      fontSize: '12px',
       fontWeight: '600',
       textTransform: 'uppercase',
       letterSpacing: '3px',
       cursor: 'pointer',
-      position: 'relative',
-      transition: 'all 0.4s cubic-bezier(0.23, 1, 0.32, 1)',
-      backdropFilter: 'blur(5px)'
-    },
-    registerBtn: {
-      padding: '18px 45px',
-      background: '#d4af37', // Gold
-      color: '#000',
-      border: 'none',
-      fontSize: '15px',
-      fontWeight: '800',
-      textTransform: 'uppercase',
-      letterSpacing: '2px',
-      cursor: 'pointer',
-      position: 'relative',
-      boxShadow: '0 10px 30px rgba(212, 175, 55, 0.3)',
-      transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-      borderRadius: '2px',
-      overflow: 'hidden'
+      transition: 'all 0.3s ease',
+      borderRadius: '0' // Sharp corners for luxury look
     },
     heroBackground: {
       position: 'absolute',
       top: 0, left: 0, right: 0, bottom: 0,
-      background: 'radial-gradient(circle at center, #1c1c1c 0%, #0f0f0f 40%, #050505 100%)',
+      background: '#f8f8f8', 
       zIndex: 0,
       width: '100%'
     },
     mainHeading: {
-      fontSize: 'clamp(3rem, 12vw, 10rem)',
-      fontWeight: '900',
-      lineHeight: '0.9',
+      fontSize: 'clamp(2.5rem, 10vw, 8rem)',
+      fontWeight: '400',
+      lineHeight: '1',
       margin: 0,
-      textTransform: 'uppercase',
-      letterSpacing: '-4px',
-      color: '#ffffff',
-      textShadow: '0 20px 80px rgba(255, 255, 255, 0.1)'
+      textTransform: 'none',
+      letterSpacing: '-2px',
+      color: '#1a1a1a',
+      fontStyle: 'italic'
     }
   };
 
@@ -106,39 +110,27 @@ const Landing = () => {
           style={styles.registerBtn}
           onClick={() => navigate('/register')}
           onMouseOver={(e) => {
-            e.target.style.transform = 'translateY(-3px)';
-            e.target.style.background = '#f1c40f'; // Brighter Gold
-            e.target.style.boxShadow = '0 20px 50px rgba(212, 175, 55, 0.5)';
+            e.target.style.background = '#333';
+            e.target.style.letterSpacing = '5px';
           }}
           onMouseOut={(e) => {
-            e.target.style.transform = 'translateY(0)';
-            e.target.style.background = '#d4af37';
-            e.target.style.boxShadow = '0 10px 30px rgba(212, 175, 55, 0.3)';
+            e.target.style.background = '#000';
+            e.target.style.letterSpacing = '3px';
           }}
         >
           <span style={{ position: 'relative', zIndex: 2 }}>Join the Agency</span>
-          <div style={{
-            position: 'absolute',
-            top: 0,
-            left: '-100%',
-            width: '50%',
-            height: '100%',
-            background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)',
-            transform: 'skewX(-25deg)',
-            animation: 'shimmer 3s infinite'
-          }} />
         </button>
 
         <button
           style={styles.accessBtn}
           onClick={() => navigate('/login')}
           onMouseOver={(e) => {
-            e.target.style.background = '#d4af37';
-            e.target.style.color = '#000';
+            e.target.style.paddingRight = '15px';
+            e.target.style.opacity = '0.6';
           }}
           onMouseOut={(e) => {
-            e.target.style.background = 'transparent';
-            e.target.style.color = '#d4af37';
+            e.target.style.paddingRight = '0';
+            e.target.style.opacity = '1';
           }}
         >
           Client Portal
@@ -148,86 +140,81 @@ const Landing = () => {
       {/* Hero Section */}
       <section style={styles.section}>
         <div style={styles.heroBackground} />
-        <main style={{ zIndex: 10, textAlign: 'center', opacity: active ? 1 : 0, transition: 'all 1.2s ease-out', width: '100%' }}>
+        <main style={{ zIndex: 10, textAlign: 'center', opacity: active ? 1 : 0, transition: 'all 1.5s', width: '100%' }}>
           <span style={{
-            color: '#d4af37',
-            letterSpacing: '12px',
+            color: '#888',
+            letterSpacing: '8px',
             textTransform: 'uppercase',
-            fontSize: '13px',
-            fontWeight: '600',
+            fontSize: '11px',
+            fontWeight: '400',
             display: 'block',
-            marginBottom: '20px',
-            opacity: 0.8
+            marginBottom: '30px'
           }}>
-            Addis Ababa — Est. 2026
+            Creative Direction — Addis Ababa
           </span>
           <h1 style={styles.mainHeading}>
             Addis Photo<br />
-            <span style={{ color: 'transparent', WebkitTextStroke: '1px rgba(255,255,255,0.8)' }}>& Media</span>
+            <span style={{ color: '#000', fontWeight: '900', fontStyle: 'normal' }}>& Media</span>
           </h1>
           <p style={{
-            color: '#a0a0a0',
-            maxWidth: '600px',
-            margin: '40px auto',
-            fontSize: '17px',
-            lineHeight: '1.7',
+            color: '#444',
+            maxWidth: '500px',
+            margin: '50px auto',
+            fontSize: '16px',
+            lineHeight: '1.8',
             padding: '0 20px',
-            letterSpacing: '0.5px'
+            fontWeight: '300'
           }}>
-            Capture the essence of the capital. We are a premium creative house 
-            specializing in cinematic storytelling and high-fidelity production.
+            Crafting visual narratives for the modern era. We specialize in 
+            high-end photography and cinematic production that transcends borders.
           </p>
           <div 
             style={{
-              marginTop: '30px',
-              color: '#d4af37',
-              fontSize: '12px',
-              fontWeight: '700',
+              marginTop: '40px',
+              color: '#000',
+              fontSize: '11px',
               letterSpacing: '2px',
-              animation: 'pulse 2s infinite',
-              cursor: 'pointer',
-              textTransform: 'uppercase'
+              fontWeight: '700',
+              textTransform: 'uppercase',
+              textDecoration: 'underline',
+              cursor: 'pointer'
             }}
             onClick={() => navigate('/register')}
           >
-            Explore the Collective ↓
+            Become a Creative
           </div>
         </main>
       </section>
 
       {/* Secondary Section */}
-      <section style={{ ...styles.section, background: '#080808', width: '100vw' }}>
-        <h2 style={{ color: '#ffffff', fontSize: '6vw', fontWeight: '900', margin: 0, textAlign: 'center' }}>
-          Visionary <span style={{ color: '#d4af37' }}>Execution.</span>
+      <section style={{ ...styles.section, background: '#1a1a1a', width: '100vw' }}>
+        <h2 style={{ color: '#fff', fontSize: '5vw', fontWeight: '300', margin: 0, textAlign: 'center' }}>
+          Minimal. <span style={{ fontWeight: '800' }}>Timeless.</span>
         </h2>
-        <p style={{ color: '#666', marginTop: '20px', fontSize: '1.1rem', maxWidth: '500px', textAlign: 'center' }}>
-          From the streets of Bole to the world stage, we define the visual standard.
+        <p style={{ color: '#fff', opacity: 0.5, marginTop: '30px', fontSize: '1rem', letterSpacing: '1px' }}>
+          Redefining Ethiopian aesthetics through a global lens.
         </p>
         <div style={{
-          marginTop: '50px',
-          width: '100px',
-          height: '2px',
-          background: '#d4af37',
-          opacity: 0.6
+          marginTop: '60px',
+          width: '40px',
+          height: '1px',
+          background: '#fff',
         }} />
       </section>
 
       {/* Global Styles */}
       <style>
         {`
-          @keyframes pulse {
-            0% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.05); }
-            100% { opacity: 0.5; transform: scale(1); }
+          @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400&display=swap');
+          
+          ::-webkit-scrollbar { width: 5px; }
+          ::-webkit-scrollbar-track { background: #fff; }
+          ::-webkit-scrollbar-thumb { background: #000; }
+          
+          body {
+            background-color: #ffffff;
+            color: #000;
           }
-          @keyframes shimmer {
-            0% { left: -100%; }
-            30% { left: 150%; }
-            100% { left: 150%; }
-          }
-          ::-webkit-scrollbar { width: 6px; }
-          ::-webkit-scrollbar-track { background: #050505; }
-          ::-webkit-scrollbar-thumb { background: #d4af37; }
         `}
       </style>
     </div>

@@ -2,7 +2,7 @@ Addis Photo & Media Agency
 
 A demo website for Addis Photo & Media Agency showcasing services, portfolio, and contact information for clients. This project demonstrates a modern web presence for a media company.
 
-🌐 Live Demo: Addis Photo & Media Agency
+🌐 Live Demo: https://addis-photo-an-media-agency-demo2.onrender.com
 
 Features
 
@@ -30,7 +30,7 @@ Installation
 
 Clone the repository:
 
-git clone https://github.com/YourUsername/addis-photo-media.git
+git clone https://github.com/Haimanot515/addis-photo-media.git
 
 Navigate into the project directory:
 
@@ -44,9 +44,6 @@ Start the development server:
 
 npm run dev
 Usage
-
-Open the site in your browser at http://localhost:3000
-
 Browse through services and portfolio
 
 Use the contact form to send inquiries
@@ -68,5 +65,5 @@ This project is licensed under the MIT License.
 Author
 
 Haimanot Beka
-Email: +251-912-345678
-Website: Your Portfolio
+Email: +251943257078
+

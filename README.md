@@ -22,7 +22,6 @@ HTML5, CSS3, JavaScript
 
 React.js / Next.js
 
-Tailwind CSS (for styling)
 
 Render.com (deployment)
 

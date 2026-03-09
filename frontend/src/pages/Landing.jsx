@@ -7,7 +7,6 @@ const Landing = () => {
 
   useEffect(() => {
     setActive(true);
-    // Reset body styles to ensure full-width layout
     document.body.style.margin = '0';
     document.body.style.padding = '0';
     document.body.style.overflowX = 'hidden';
@@ -23,8 +22,8 @@ const Landing = () => {
       overflowY: 'scroll',
       overflowX: 'hidden',
       scrollSnapType: 'y mandatory',
-      backgroundColor: '#020617', // Deep Navy
-      fontFamily: "'Inter', sans-serif",
+      backgroundColor: '#ffffff', // Clean white base
+      fontFamily: "'Playfair Display', serif", // Editorial feel
       margin: 0,
       padding: 0
     },
@@ -43,59 +42,63 @@ const Landing = () => {
     },
     topNav: {
       position: 'fixed',
-      top: '40px',
-      right: '40px',
+      top: '0',
+      left: '0',
+      width: '100%',
+      height: '100px',
       display: 'flex',
-      gap: '20px',
-      zIndex: 1000
+      justifyContent: 'flex-end',
+      alignItems: 'center',
+      padding: '0 60px',
+      boxSizing: 'border-box',
+      gap: '40px',
+      zIndex: 1000,
+      backgroundColor: 'rgba(255,255,255,0.9)',
+      backdropFilter: 'blur(10px)',
+      borderBottom: '1px solid #eee'
     },
     accessBtn: {
-      padding: '18px 45px',
-      background: '#00d4ff', // Electric Blue
+      padding: '12px 0',
+      background: 'transparent',
       color: '#000',
       border: 'none',
-      fontSize: '14px',
-      fontWeight: '900',
+      borderBottom: '2px solid #000',
+      fontSize: '12px',
+      fontWeight: '700',
+      textTransform: 'uppercase',
+      letterSpacing: '4px',
+      cursor: 'pointer',
+      transition: 'all 0.3s ease',
+    },
+    registerBtn: {
+      padding: '15px 35px',
+      background: '#000',
+      color: '#fff',
+      border: 'none',
+      fontSize: '12px',
+      fontWeight: '600',
       textTransform: 'uppercase',
       letterSpacing: '3px',
       cursor: 'pointer',
-      position: 'relative',
-      boxShadow: '0 0 30px rgba(0, 212, 255, 0.4), inset 0 0 10px rgba(255,255,255,0.5)',
-      transition: 'all 0.3s cubic-bezier(0.23, 1, 0.32, 1)',
-      clipPath: 'polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0% 30%)'
-    },
-    registerBtn: {
-      padding: '18px 45px',
-      background: 'linear-gradient(135deg, #ffcc00 0%, #ff9900 100%)',
-      color: '#000',
-      border: 'none',
-      fontSize: '15px',
-      fontWeight: '1000',
-      textTransform: 'uppercase',
-      letterSpacing: '2px',
-      cursor: 'pointer',
-      position: 'relative',
-      boxShadow: '0 10px 40px rgba(255, 153, 0, 0.5)',
-      transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-      borderRadius: '4px',
-      overflow: 'hidden'
+      transition: 'all 0.3s ease',
+      borderRadius: '0' // Sharp corners for luxury look
     },
     heroBackground: {
       position: 'absolute',
       top: 0, left: 0, right: 0, bottom: 0,
-      background: 'radial-gradient(circle at center, #1e40af 0%, #1e3a8a 40%, #020617 100%)', // Blue gradients
+      background: '#f8f8f8', 
       zIndex: 0,
       width: '100%'
     },
     mainHeading: {
-      fontSize: 'clamp(3rem, 12vw, 10rem)',
-      fontWeight: '950',
-      lineHeight: '0.85',
+      fontSize: 'clamp(2.5rem, 10vw, 8rem)',
+      fontWeight: '400',
+      lineHeight: '1',
       margin: 0,
-      textTransform: 'uppercase',
-      letterSpacing: '-6px',
-      color: '#f0f9ff',
-      textShadow: '0 0 50px rgba(59, 130, 246, 0.4)'
+      textTransform: 'none',
+      letterSpacing: '-2px',
+      color: '#1a1a1a',
+      fontStyle: 'italic'
     }
   };
 
@@ -107,39 +110,27 @@ const Landing = () => {
           style={styles.registerBtn}
           onClick={() => navigate('/register')}
           onMouseOver={(e) => {
-            e.target.style.transform = 'scale(1.1) rotate(-2deg)';
-            e.target.style.boxShadow = '0 20px 60px rgba(255, 153, 0, 0.8)';
+            e.target.style.background = '#333';
+            e.target.style.letterSpacing = '5px';
           }}
           onMouseOut={(e) => {
-            e.target.style.transform = 'scale(1) rotate(0deg)';
-            e.target.style.boxShadow = '0 10px 40px rgba(255, 153, 0, 0.5)';
+            e.target.style.background = '#000';
+            e.target.style.letterSpacing = '3px';
           }}
         >
           <span style={{ position: 'relative', zIndex: 2 }}>Join the Agency</span>
-          <div style={{
-            position: 'absolute',
-            top: 0,
-            left: '-100%',
-            width: '50%',
-            height: '100%',
-            background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent)',
-            transform: 'skewX(-25deg)',
-            animation: 'shimmer 3s infinite'
-          }} />
         </button>
 
         <button
           style={styles.accessBtn}
           onClick={() => navigate('/login')}
           onMouseOver={(e) => {
-            e.target.style.transform = 'scale(1.05) translateY(-3px)';
-            e.target.style.background = '#fff';
-            e.target.style.boxShadow = '0 20px 50px rgba(0, 212, 255, 0.8)';
+            e.target.style.paddingRight = '15px';
+            e.target.style.opacity = '0.6';
           }}
           onMouseOut={(e) => {
-            e.target.style.transform = 'scale(1) translateY(0)';
-            e.target.style.background = '#00d4ff';
-            e.target.style.boxShadow = '0 0 30px rgba(0, 212, 255, 0.4)';
+            e.target.style.paddingRight = '0';
+            e.target.style.opacity = '1';
           }}
         >
           Client Portal
@@ -149,83 +140,81 @@ const Landing = () => {
       {/* Hero Section */}
       <section style={styles.section}>
         <div style={styles.heroBackground} />
-        <main style={{ zIndex: 10, textAlign: 'center', opacity: active ? 1 : 0, transition: 'all 1s', width: '100%' }}>
+        <main style={{ zIndex: 10, textAlign: 'center', opacity: active ? 1 : 0, transition: 'all 1.5s', width: '100%' }}>
           <span style={{
-            color: '#00d4ff',
-            letterSpacing: '15px',
+            color: '#888',
+            letterSpacing: '8px',
             textTransform: 'uppercase',
-            fontSize: '12px',
-            fontWeight: '900',
+            fontSize: '11px',
+            fontWeight: '400',
             display: 'block',
-            marginBottom: '20px'
+            marginBottom: '30px'
           }}>
-            Premium Creative Agency — Addis Ababa
+            Creative Direction — Addis Ababa
           </span>
           <h1 style={styles.mainHeading}>
             Addis Photo<br />
-            <span style={{ color: 'transparent', WebkitTextStroke: '2px #00d4ff' }}>& Media</span>
+            <span style={{ color: '#000', fontWeight: '900', fontStyle: 'normal' }}>& Media</span>
           </h1>
           <p style={{
-            color: '#fff',
-            opacity: 0.6,
-            maxWidth: '650px',
-            margin: '40px auto',
-            fontSize: '18px',
-            lineHeight: '1.6',
-            padding: '0 20px'
+            color: '#444',
+            maxWidth: '500px',
+            margin: '50px auto',
+            fontSize: '16px',
+            lineHeight: '1.8',
+            padding: '0 20px',
+            fontWeight: '300'
           }}>
-            The premier visual production house in Ethiopia. From high-fashion photography 
-            to cinematic commercial production, we define the aesthetic of the modern capital.
+            Crafting visual narratives for the modern era. We specialize in 
+            high-end photography and cinematic production that transcends borders.
           </p>
           <div 
             style={{
-              marginTop: '20px',
-              color: '#ffcc00',
-              fontSize: '14px',
-              fontWeight: '900',
-              animation: 'pulse 2s infinite',
+              marginTop: '40px',
+              color: '#000',
+              fontSize: '11px',
+              letterSpacing: '2px',
+              fontWeight: '700',
+              textTransform: 'uppercase',
+              textDecoration: 'underline',
               cursor: 'pointer'
             }}
             onClick={() => navigate('/register')}
           >
-            ↑ NEW CREATIVES CLICK "JOIN THE AGENCY"
+            Become a Creative
           </div>
         </main>
       </section>
 
       {/* Secondary Section */}
-      <section style={{ ...styles.section, background: '#020617', width: '100vw' }}>
-        <h2 style={{ color: '#f0f9ff', fontSize: '6vw', fontWeight: '900', margin: 0, textAlign: 'center' }}>
-          Capture the <span style={{ color: '#00d4ff' }}>Moment.</span>
+      <section style={{ ...styles.section, background: '#1a1a1a', width: '100vw' }}>
+        <h2 style={{ color: '#fff', fontSize: '5vw', fontWeight: '300', margin: 0, textAlign: 'center' }}>
+          Minimal. <span style={{ fontWeight: '800' }}>Timeless.</span>
         </h2>
-        <p style={{ color: '#f0f9ff', opacity: 0.5, marginTop: '20px', fontSize: '1.2rem' }}>
-          Providing world-class media solutions for Addis Ababa's growing brands.
+        <p style={{ color: '#fff', opacity: 0.5, marginTop: '30px', fontSize: '1rem', letterSpacing: '1px' }}>
+          Redefining Ethiopian aesthetics through a global lens.
         </p>
         <div style={{
-          marginTop: '40px',
-          width: '80%',
+          marginTop: '60px',
+          width: '40px',
           height: '1px',
-          background: 'linear-gradient(90deg, transparent, #00d4ff, transparent)',
-          opacity: 0.3
+          background: '#fff',
         }} />
       </section>
 
       {/* Global Styles */}
       <style>
         {`
-          @keyframes pulse {
-            0% { opacity: 0.4; transform: translateY(0); }
-            50% { opacity: 1; transform: translateY(-5px); }
-            100% { opacity: 0.4; transform: translateY(0); }
+          @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400&display=swap');
+          
+          ::-webkit-scrollbar { width: 5px; }
+          ::-webkit-scrollbar-track { background: #fff; }
+          ::-webkit-scrollbar-thumb { background: #000; }
+          
+          body {
+            background-color: #ffffff;
+            color: #000;
           }
-          @keyframes shimmer {
-            0% { left: -100%; }
-            30% { left: 150%; }
-            100% { left: 150%; }
-          }
-          ::-webkit-scrollbar { width: 8px; }
-          ::-webkit-scrollbar-track { background: #020617; }
-          ::-webkit-scrollbar-thumb { background: #00d4ff; border-radius: 10px; }
         `}
       </style>
     </div>
